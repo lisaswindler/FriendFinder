@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
+    <!-- CSS -->
+    <link rel="stylesheet" media="screen" href="style.css">
+
 </head>
 
 <body>
@@ -28,7 +31,7 @@
 
         <h3><strong>About You</strong></h3>
         <h4>Name (Required)</h4>
-        <input type="text" id="name" class="form-control" required>
+        <input type="text" id="name" class="form-control col-6" required>
 
         <h4>Link to Photo Image (Required)</h4>
         <input type="text" id="photo" class="form-control" required>
@@ -38,7 +41,7 @@
         <h3><strong>Question 1</strong></h3>
         <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
         <select class="chosen-select" id="q1">
-            <option value=""></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -49,7 +52,7 @@
         <h3><strong>Question 2</strong></h3>
         <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
         <select class="chosen-select" id="q2">
-            <option value=""></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -61,7 +64,7 @@
         <h3><strong>Question 3</strong></h3>
         <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
         <select class="chosen-select" id="q3">
-            <option value=""></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -73,7 +76,7 @@
         <h3><strong>Question 4</strong></h3>
         <h4>You rarely do something just out of sheer curiosity.</h4>
         <select class="chosen-select" id="q4">
-            <option value=""></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -85,7 +88,7 @@
         <h3><strong>Question 5</strong></h3>
         <h4>People can rarely upset you.</h4>
         <select class="chosen-select" id="q5">
-            <option value=""></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -97,7 +100,7 @@
         <h3><strong>Question 6</strong></h3>
         <h4>It is often difficult for you to relate to other people’s feelings.</h4>
         <select class="chosen-select" id="q6">
-            <option value=""></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -109,7 +112,7 @@
         <h3><strong>Question 7</strong></h3>
         <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
         <select class="chosen-select" id="q7">
-            <option value=""></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -120,7 +123,7 @@
         <h3><strong>Question 8</strong></h3>
         <h4>You rarely get carried away by fantasies and ideas.</h4>
         <select class="chosen-select" id="q8">
-            <option value=""></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -132,7 +135,7 @@
         <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or
             not.</h4>
         <select class="chosen-select" id="q9">
-            <option value=""></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -143,7 +146,7 @@
         <h3><strong>Question 10</strong></h3>
         <h4>You feel more energetic after spending time with a group of people.</h4>
         <select class="chosen-select" id="q10">
-            <option value=""></option>
+            <option value="0"></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -177,11 +180,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title"><strong>Best Match</strong></h2>
+                    <h2 class="modal-title">Your best match is:</h2>
                 </div>
-                <div class="modal-body">
-                    <h2 id="match-name"></h2>
-                    <img id="match-img" src="https://lisaswindler.github.io/images/lisapic-square.jpg" alt="">
+                <div class="modal-body text-center">
+                    <h1 id="match-name" style="margin-top: 0px;"></h1>
+                    <img class="img-thumbnail" id="match-img" src="" alt="friend picture">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -194,29 +197,56 @@
     <script type="text/javascript">
         var scoreArray = [];
         var userScores = [];
-
-        $.get("/api/friends", function (data) {
-            for (var i = 0; i < data.length; i++) {
-                scoreArray.push(data[i].scores);
-            }
-            console.log(scoreArray);
-           compareArrays();
-        });
+        var nameArray = [];
+        var photoArray = [];
+        var sumArray = [];
+        var friendMatch = "";
+        var photoMatch = "";
 
         function compareArrays() {
-            var a = scoreArray[0],
-                b = scoreArray[1],
-                x = [];
-            for (var i = 0; i < a.length; i++) {
-                x.push(a[i] - b[i]);
+            var userScoreArray = userScores[0],
+                allFriendsArray = scoreArray,
+                combinedArray = [];
+            console.log("User scores: ", userScoreArray);
+            for (var i = 0; i < scoreArray.length; i++) {
+                var separatedArray = [];
+                for (var j = 0; j < userScoreArray.length; j++) {
+                    separatedArray.push(userScoreArray[j] - allFriendsArray[i][j]);
+                    separatedArray[j] = Math.abs(separatedArray[j]);
+                } combinedArray.push(separatedArray);
             }
-            for (var i = 0; i < x.length; i++) {
-                if (x[i] < 0) {
-                 x[i] = x[i] * -1;
-            }  
-            }
-            console.log(x);
-        }
+            console.log("All subtracted arrays", combinedArray);
+            for (var i = 0; i < combinedArray.length; i++) {
+                var comparisonSum = combinedArray[i].reduce((userScoreArray, allFriendsArray) => userScoreArray + allFriendsArray, 0);
+                console.log("Index " + i + ": " + comparisonSum);
+                sumArray.push(comparisonSum);
+            };
+            console.log(sumArray);
+            findMatch(sumArray);
+            console.log(friendMatch);
+            console.log(photoMatch);
+        };
+
+        function findMatch(array) {
+            var matchIndex = array.indexOf(Math.min.apply(Math, array));
+            console.log(matchIndex);
+            friendMatch += nameArray[matchIndex];
+            photoMatch += photoArray[matchIndex];
+        };
+
+        function resetArrays() {
+            nameArray = [];
+            photoArray = [];
+            scoreArray = [];
+            sumArray = [];
+            friendMatch = "";
+            photoMatch = "";
+        };
+
+        function clearFields() {
+            $("#name").val("");
+            $("#photo").val("");
+        };
 
         // Chosen CSS
         var config = {
@@ -281,17 +311,28 @@
                     ]
                 };
                 userScores.push(userData.scores);
-                console.log(userScores);
+                $.get("/api/friends", function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        nameArray.push(data[i].name);
+                        scoreArray.push(data[i].scores);
+                        photoArray.push(data[i].photo);
+                    }
+                    console.log("All scores: ", scoreArray);
+                    console.log(nameArray);
+                    compareArrays();
+                });
                 // AJAX post the data to the friends API.
                 $.post("/api/friends", userData, function (data) {
                     // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                    $("#match-name").text(data.name);
-                    $("#match-img").attr("src", data.photo);
+                    $("#match-name").text(friendMatch);
+                    $("#match-img").attr("src", photoMatch);
 
                     // Show the modal with the best match
                     $("#results-modal").modal("toggle");
 
                 });
+                resetArrays();
+                clearFields();
             } else {
                 alert("Please fill out all fields before submitting!");
             }
