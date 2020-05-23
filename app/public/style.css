@@ -1,3 +1,47 @@
-#match-img {
-    width: 200px;
+.jumbotron {
+    background-image: url('images/friends_truck.jpg');
+    height: 750px;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.btn {
+    background-color: linen;
+    color: darkslategrey;
+}
+
+.heading-text {
+    padding-top: 120px;
+}
+
+@media only screen and (max-width: 543px) {
+    .heading-text {
+        padding-top: 80px;
+    }
+}
+
+.footer-text {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    word-spacing: .2em;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+/* Links */
+a:link {
+    color:linen;
+}
+a:visited {
+    color: linen;
+}
+a:hover {
+    color: white;
+    text-decoration: none;
 }
