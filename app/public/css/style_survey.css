@@ -1,0 +1,123 @@
+body {
+    background-image: url('./../images/friends_love.jpg');
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.questions {
+    animation: fadeInAnimation ease 4s; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+} 
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
+}
+
+.friend-finder {
+    font-family: 'Syncopate', sans-serif;
+    text-shadow: 2px 3px 5px rgb(61, 61, 61);
+    color: white;
+    font-size: 45px;
+}
+
+.text-color {
+    color: #89aed8;
+}
+
+.sub-heading {
+    font-family: 'Caveat', cursive;
+    color: white;
+}
+
+h3 {
+    padding-top: 20px;
+    color: white;
+}
+
+.chosen-select {
+    color: rgb(70, 70, 70);
+}
+
+.q-number {
+    color: #89aed8;
+    font-size: 80px;
+    font-family: 'Syncopate', sans-serif;
+    text-shadow: 2px 3px 5px rgb(46, 46, 46);
+    text-align: center;
+}
+
+.submit-button {
+    background-color: white;
+    color: #89aed8;
+    box-shadow: 2px 3px 5px rgb(61, 61, 61);
+    font-family: 'Syncopate', sans-serif;
+}
+
+.close-button {
+    background-color: white;
+    color: #89aed8;
+    box-shadow: 2px 3px 5px rgb(61, 61, 61);
+    font-family: 'Syncopate', sans-serif;   
+}
+
+.footer-text {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    word-spacing: .2em;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.nav-text {
+    position: absolute;
+    top: 0;
+    left: 6px;
+    color: white;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 2em;
+}
+
+.friend-name {
+    font-family: 'Syncopate', sans-serif;
+    color: white;
+}
+
+.modal-title {
+    font-family: 'Caveat', cursive;
+    color: #89aed8;
+}
+
+.modal-body {
+    background-color: #212b36;
+}
+
+/* Links */
+a:link, a:visited {
+    color: #89aed8;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.submit-button:hover {
+    background-color: #89aed8;
+    color: white !important;
+}
+
+.close-button:hover {
+    background-color: #89aed8;
+    color: white !important;
+}

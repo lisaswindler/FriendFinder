@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>FriendFinder</title>
+    <title>Friend Finder</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -12,7 +12,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
 
@@ -20,100 +19,34 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- CSS -->
-    <!-- <link rel="stylesheet" media="screen" href="style.css"> -->
-    <style>
-        .jumbotron {
-            background-image: url('https://cdn.pixabay.com/photo/2016/02/19/10/37/girls-1209321_1280.jpg');
-            height: 750px;
-            background-size: cover;
-            position: relative;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-        }
-
-        .friend-finder {
-            /* font-family: 'Montserrat Subrayada', sans-serif; */
-            font-family: 'Syncopate', sans-serif;
-        }
-
-        .sub-heading {
-            font-family: 'Caveat', cursive;
-        }
-        .btn {
-            background-color: white;
-            color: rgb(57, 75, 82);
-        }
-
-        .heading-text {
-            padding-top: 120px;
-        }
-
-        .survey-button {
-            font-family: 'Syncopate', sans-serif;
-        }
-
-        @media only screen and (max-width: 991px) {
-            .heading-text {
-                padding-top: 90px;
-            }
-        }
-
-        .footer-text {
-            position: absolute;
-            bottom: 0;
-            color: white;
-            word-spacing: .2em;
-            margin-left: auto;
-            margin-right: auto;
-            left: 0;
-            right: 0;
-        }
-
-        /* Links */
-        a:link {
-            color: linen;
-        }
-
-        a:visited {
-            color: linen;
-        }
-
-        a:hover {
-            color: white;
-            text-decoration: none;
-        }
-    </style>
-
+    <link rel="stylesheet" href="./css/style_home.css">
 </head>
 
 <body>
-
     <div class="container-fluid px-0">
-
-        <div class="jumbotron m-0 rounded-0">
-            <div class="heading-text container text-center">
-                <h1 class="friend-finder display-2 pb-sm-3">Friend Finder</h1>
-                <h1 class="sub-heading mt-sm-4">Ready to make some friends?</h1>
-                <h1 class="sub-heading pb-3">Answer a few questions and we'll find your new BFF!</h1>
-                <div class="mt-5">
-                    <a href="/survey">
-                        <button type="button" class="btn rounded-0">
-                            <h4 class="survey-button my-auto p-2"><i class="fa fa-pencil pr-3" aria-hidden="true"></i>Go to Survey
-                            </h4>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-text text-center small pb-1">
-                <a href="/api/friends"><i class="fa fa-users" aria-hidden="true"></i> Friends API</a> | <a
-                    href="https://github.com/lisaswindler/FriendFinder"><i class="fa fa-github" aria-hidden="true"></i>
-                    GitHub</a>
+        <div class="nav-text">
+            <a href="/">FF</a>
+        </div>
+        <div class="heading-text container text-center">
+            <h1 class="friend-finder display-2 pb-sm-5 pb-3 pt-3 pt-md-3">Friend Finder</h1>
+            <h1 class="sub-heading mt-sm-4">Ready to make some friends?</h1>
+            <h1 class="sub-heading pb-lg-5 pb-3">Answer a few questions and we'll find your new BFF!</h1>
+            <div class="mt-5">
+                <a href="/survey">
+                    <button type="button" class="survey-button btn rounded-0">
+                        <h4 class="my-auto p-2"><i class="fa fa-pencil pr-3" aria-hidden="true"></i>Go to
+                            Survey
+                        </h4>
+                    </button>
+                </a>
             </div>
         </div>
+        <div class="footer-text text-center small pb-1">
+            <a href="/api/friends"><i class="fa fa-users" aria-hidden="true"></i> Friends API</a> | <a
+                href="https://github.com/lisaswindler/FriendFinder"><i class="fa fa-github" aria-hidden="true"></i>
+                GitHub</a>
+        </div>
     </div>
-
-
 </body>
 
 </html>

@@ -1,0 +1,88 @@
+body {
+    background-image: url('./../images/friends_truck.jpg');
+    height: 750px;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.friend-finder {
+    font-family: 'Syncopate', sans-serif;
+    text-shadow: 2px 3px 5px rgb(61, 61, 61);
+}
+
+.sub-heading {
+    font-family: 'Caveat', cursive;
+    animation: fadeInAnimation ease 4s; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+} 
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
+}
+
+.text-color {
+    color: #89aed8;
+}
+
+.survey-button {
+    background-color: white;
+    color: #89aed8;
+    box-shadow: 2px 3px 5px rgb(61, 61, 61);
+    font-family: 'Syncopate', sans-serif;
+}
+
+.heading-text {
+    padding-top: 160px;
+}
+
+@media only screen and (max-width: 991px) {
+    .heading-text {
+        padding-top: 80px;
+    }
+}
+
+.footer-text {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    word-spacing: .2em;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+.nav-text {
+    position: absolute;
+    top: 0;
+    left: 6px;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 2em;
+}
+
+/* Links */
+a:link {
+    color: #89aed8;
+}
+
+a:visited {
+    color: #89aed8;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #89aed8;
+    color: white !important;
+}
