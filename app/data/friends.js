@@ -16,7 +16,7 @@ var friendArray = [
     },
     {
         name: 'Lucy',
-        photo: 'https://cdn.pixabay.com/photo/2014/07/11/22/05/baby-390555_1280.jpg',
+        photo: 'http://1.bp.blogspot.com/-s3Ve-GMXRyk/Xs33tjQv7tI/AAAAAAAAEBo/39APx7PU2PUUNejF6JGnBnVcMXuklZWcQCK4BGAYYCw/s1600/lucy.jpg',
         scores: [5, 1, 1, 1, 1, 5, 5, 1, 1, 1]
     }
 ];

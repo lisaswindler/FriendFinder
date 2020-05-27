@@ -12,6 +12,10 @@ body {
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
 } 
+
+.num10 {
+    padding-left: 90px;
+}
 @keyframes fadeInAnimation { 
     0% { 
         opacity: 0; 
@@ -44,6 +48,18 @@ h3 {
 
 .chosen-select {
     color: rgb(70, 70, 70);
+}
+
+.chosen-container {
+    margin-left: 120px;
+    width: 300px !important;
+}
+
+@media only screen and (max-width: 500px) {
+    .chosen-container {
+        margin-left: 0px;
+        width: 250px !important;
+    }
 }
 
 .q-number {
