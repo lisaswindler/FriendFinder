@@ -41,7 +41,7 @@
                     <h3 class="col-11 pl-5 pb-3">Your mind is always buzzing with unexplored ideas and plans.</h3>
                 </div>
                 <select class="chosen-select" id="q1">
-                    <option value="0"></option>
+                    <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -54,7 +54,7 @@
                     <h3 class="col-11 pl-5 pb-3">Generally speaking, you rely more on your experience than your imagination.</h3>
                 </div>
                 <select class="chosen-select" id="q2">
-                    <option value="0"></option>
+                    <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -68,7 +68,7 @@
                     <h3 class="col-11 pl-5 pb-3">You find it easy to stay relaxed and focused even when there is some pressure.</h3>
                 </div>
                 <select class="chosen-select" id="q3">
-                    <option value="0"></option>
+                    <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -82,7 +82,7 @@
                     <h3 class="col-11 pl-5 pb-3">You rarely do something just out of sheer curiosity.</h3>
                 </div>
                 <select class="chosen-select" id="q4">
-                    <option value="0"></option>
+                    <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -96,7 +96,7 @@
                     <h3 class="col-11 pl-5 pb-3">People can rarely upset you.</h3>
                 </div>
                 <select class="chosen-select" id="q5">
-                    <option value="0"></option>
+                    <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -110,7 +110,7 @@
                     <h3 class="col-11 pl-5 pb-3">It is often difficult for you to relate to other people’s feelings.</h3>
                 </div>
                 <select class="chosen-select" id="q6">
-                    <option value="0"></option>
+                    <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -124,7 +124,7 @@
                     <h3 class="col-11 pl-5 pb-3">In a discussion, truth should be more important than people’s sensitivities.</h3>
                 </div>
                 <select class="chosen-select" id="q7">
-                    <option value="0"></option>
+                    <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -137,7 +137,7 @@
                     <h3 class="col-11 pl-5 pb-3">You rarely get carried away by fantasies and ideas.</h3>
                 </div>
                 <select class="chosen-select" id="q8">
-                    <option value="0"></option>
+                    <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -152,7 +152,7 @@
                         not.</h3>
                 </div>
                 <select class="chosen-select" id="q9">
-                    <option value="0"></option>
+                    <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -165,7 +165,7 @@
                     <h3 class="col-11 num10 pb-3">You feel more energetic after spending time with a group of people.</h3>
                 </div>
                 <select class="chosen-select" id="q10">
-                    <option value="0"></option>
+                    <option value=""></option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -233,7 +233,6 @@
             var userScoreArray = userScores[0],
                 allFriendsArray = scoreArray,
                 combinedArray = [];
-            console.log("User scores: ", userScoreArray);
             for (var i = 0; i < scoreArray.length; i++) {
                 var separatedArray = [];
                 for (var j = 0; j < userScoreArray.length; j++) {
@@ -241,21 +240,15 @@
                     separatedArray[j] = Math.abs(separatedArray[j]);
                 } combinedArray.push(separatedArray);
             }
-            console.log("All subtracted arrays", combinedArray);
             for (var i = 0; i < combinedArray.length; i++) {
                 var comparisonSum = combinedArray[i].reduce((userScoreArray, allFriendsArray) => userScoreArray + allFriendsArray, 0);
-                console.log("Index " + i + ": " + comparisonSum);
                 sumArray.push(comparisonSum);
             };
-            console.log(sumArray);
             findMatch(sumArray);
-            console.log(friendMatch);
-            console.log(photoMatch);
         };
 
         function findMatch(array) {
             var matchIndex = array.indexOf(Math.min.apply(Math, array));
-            console.log(matchIndex);
             friendMatch += nameArray[matchIndex];
             photoMatch += photoArray[matchIndex];
         };
@@ -298,7 +291,6 @@
         // Capture the form inputs
         $("#submit").on("click", function (event) {
             event.preventDefault();
-
             // Form validation
             function validateForm() {
                 var isValid = true;
@@ -343,8 +335,6 @@
                         scoreArray.push(data[i].scores);
                         photoArray.push(data[i].photo);
                     }
-                    console.log("All scores: ", scoreArray);
-                    console.log(nameArray);
                     compareArrays();
                 });
                 // AJAX post the data to the friends API.
@@ -352,7 +342,6 @@
                     // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                     $("#match-name").text(friendMatch);
                     $("#match-img").attr("src", photoMatch);
-
                     // Show the modal with the best match
                     $("#results-modal").modal("toggle");
 
