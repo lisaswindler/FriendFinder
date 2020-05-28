@@ -18,7 +18,12 @@ var friendArray = [
         name: 'Lucy',
         photo: 'http://1.bp.blogspot.com/-s3Ve-GMXRyk/Xs33tjQv7tI/AAAAAAAAEBo/39APx7PU2PUUNejF6JGnBnVcMXuklZWcQCK4BGAYYCw/s1600/lucy.jpg',
         scores: [5, 1, 1, 1, 1, 5, 5, 1, 1, 1]
-    }
+    },
+    {
+        name: 'Ander',
+        photo: 'https://3.bp.blogspot.com/-kaI17DZ-1h0/Xs8Tn3q-VbI/AAAAAAAAEB0/y4EN48ZJixsiesrVifo--rtiwF09SSCkwCK4BGAYYCw/s320/IMG_8118.jpeg',
+        scores: [5, 1, 2, 1, 2, 2, 4, 1, 2, 5]
+    },
 ];
 
 module.exports = friendArray;
