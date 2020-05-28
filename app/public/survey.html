@@ -232,16 +232,16 @@
     <script type="text/javascript">
 
 $(document).ready(function() {
-        scoreArray = [];
-        userScores = [];
-        nameArray = [];
-        photoArray = [];
-        sumArray = [];
-        friendMatch = "";
-        photoMatch = "";
+        var scoreArray = [];
+        var userScores = [];
+        var nameArray = [];
+        var photoArray = [];
+        var sumArray = [];
+        var friendMatch = "";
+        var photoMatch = "";
 
-        // resetArrays();
-
+            resetArrays();
+        
         function compareArrays() {
             var userScoreArray = userScores[0],
                 allFriendsArray = scoreArray,
@@ -352,6 +352,7 @@ $(document).ready(function() {
                     compareArrays();
                 });
                 // AJAX post the data to the friends API.
+                setTimeout(function () {
                     $.post("/api/friends", userData, function (data) {
                         // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                         $("#match-name").text(friendMatch);
@@ -359,6 +360,7 @@ $(document).ready(function() {
                         // Show the modal with the best match
                         $("#results-modal").modal("toggle");
                     });
+                }, 100);
             } else {
                 alert("Please fill out all fields before submitting!");
             }
